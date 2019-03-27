@@ -3,14 +3,10 @@ package com.tai.androidtai.modules.dashboard
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import butterknife.BindView
-import butterknife.ButterKnife
-import com.facebook.drawee.view.SimpleDraweeView
 import com.tai.androidtai.R
 import com.tai.androidtai.domain.bean.ResultBean
+import kotlinx.android.synthetic.main.item_display_all_users_info.view.*
 import java.util.*
 
 class DashboardListAdapter internal constructor(private val mPresenter: DashboardContract.Presenter) : RecyclerView.Adapter<DashboardListAdapter.DashboardViewHolder>() {
@@ -24,11 +20,11 @@ class DashboardListAdapter internal constructor(private val mPresenter: Dashboar
 
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
         val resultBean = mItems[position] as ResultBean
-        holder.mName.text = resultBean.getName()
-        holder.mImage.setImageURI(resultBean.getImageUrl())
-        holder.mStatus.text = resultBean.getStatus()
-        holder.mGender.text = resultBean.getGender()
-        holder.mLayout.setOnClickListener { mPresenter.goToUserDetails(resultBean) }
+        holder.itemView.dashboard_name.text = resultBean.getName()
+        holder.itemView.dashboard_image.setImageURI(resultBean.getImageUrl())
+        holder.itemView.dashboard_status.text = resultBean.getStatus()
+        holder.itemView.dashboard_gender.text = resultBean.getGender()
+        holder.itemView.layout.setOnClickListener { mPresenter.goToUserDetails(resultBean) }
     }
 
     override fun getItemCount(): Int {
@@ -42,23 +38,12 @@ class DashboardListAdapter internal constructor(private val mPresenter: Dashboar
 
     inner class DashboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        @BindView(R.id.layout)
-        lateinit var mLayout: ConstraintLayout
-
-        @BindView(R.id.dashboard_name)
-        lateinit var mName: TextView
-
-        @BindView(R.id.dashboard_gender)
-        lateinit var mGender: TextView
-
-        @BindView(R.id.dashboard_status)
-        lateinit var mStatus: TextView
-
-        @BindView(R.id.dashboard_image)
-        lateinit var mImage: SimpleDraweeView
-
         init {
-            ButterKnife.bind(this, itemView)
+            itemView.dashboard_name
+            itemView.dashboard_gender
+            itemView.dashboard_status
+            itemView.dashboard_image
+            itemView.layout
         }
     }
 }
