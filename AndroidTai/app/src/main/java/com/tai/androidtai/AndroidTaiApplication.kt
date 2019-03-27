@@ -23,7 +23,6 @@ class AndroidTaiApplication : DaggerApplication() {
         Fresco.initialize(this)
         applicationComponent = initializeApplicationComponent()
         applicationComponent.inject(this)
-        Fresco.initialize(this)
     }
 
     private fun initializeApplicationComponent(): AndroidTaiComponent {

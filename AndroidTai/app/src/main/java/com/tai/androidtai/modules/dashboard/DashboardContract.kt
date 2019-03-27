@@ -6,7 +6,7 @@ import com.tai.androidtai.modules.core.BaseContract
 interface DashboardContract {
 
     interface View : BaseContract.View {
-        fun displayInformation(userList: List<ResultBean>?)
+        fun displayInformation(userList: ArrayList<ResultBean>?)
     }
 
     interface Presenter : BaseContract.Presenter {

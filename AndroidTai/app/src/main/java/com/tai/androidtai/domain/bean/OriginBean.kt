@@ -4,10 +4,11 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-class OriginBean private constructor(parcel: Parcel) : Parcelable {
+class OriginBean(parcel: Parcel) : Parcelable {
 
     @SerializedName("name")
-    private var mName: String? = ""
+    private var mName: String? = null
+
 
     init {
         mName = parcel.readString()
@@ -21,11 +22,8 @@ class OriginBean private constructor(parcel: Parcel) : Parcelable {
         return 0
     }
 
-    fun getName(): String {
-        if (mName == null) {
-            mName = ""
-        }
-        return mName!!
+    fun getName(): String? {
+        return mName
     }
 
     companion object {

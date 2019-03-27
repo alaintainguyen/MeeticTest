@@ -1,19 +1,13 @@
 package com.tai.androidtai.domain.bean
 
-import android.annotation.SuppressLint
 import android.os.Parcel
 import android.os.Parcelable
-
 import com.google.gson.annotations.SerializedName
 
 class DashBoardResponseBean private constructor(parcel: Parcel) : Parcelable {
 
     @SerializedName("results")
-    var mResultBean: List<ResultBean>
-
-    init {
-        mResultBean = parcel.createTypedArrayList(ResultBean.CREATOR)
-    }
+    var mResultBean: ArrayList<ResultBean> = parcel.createTypedArrayList(ResultBean.CREATOR) as ArrayList<ResultBean>
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeTypedList<ResultBean>(mResultBean)
@@ -23,7 +17,7 @@ class DashBoardResponseBean private constructor(parcel: Parcel) : Parcelable {
         return 0
     }
 
-    fun getResultList(): List<ResultBean> {
+    fun getResultList(): ArrayList<ResultBean> {
         return mResultBean
     }
 

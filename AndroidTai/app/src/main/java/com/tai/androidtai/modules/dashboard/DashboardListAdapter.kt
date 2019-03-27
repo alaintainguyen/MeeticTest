@@ -31,9 +31,8 @@ class DashboardListAdapter internal constructor(private val mPresenter: Dashboar
         return mItems.size
     }
 
-    fun addInformation(resultInfo: List<ResultBean>) {
+    fun addInformation(resultInfo: ArrayList<ResultBean>) {
         mItems.addAll(resultInfo)
-        notifyDataSetChanged()
     }
 
     inner class DashboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

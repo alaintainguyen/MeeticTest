@@ -9,7 +9,9 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 import javax.inject.Inject
 
-class DashboardRepository @Inject
+class DashboardRepository
+
+@Inject
 constructor(retrofit: Retrofit) {
 
     private val mService: DashboardService

@@ -59,9 +59,10 @@ class DashboardActivity : BaseActivity(), DashboardContract.View {
         mPresenter.unsubscribe(this)
     }
 
-    override fun displayInformation(userList: List<ResultBean>?) {
+    override fun displayInformation(userList: ArrayList<ResultBean>?) {
         isLoading = false;
         mDashboardListAdapter.addInformation(userList!!)
+        mDashboardListAdapter.notifyDataSetChanged()
     }
 
 }

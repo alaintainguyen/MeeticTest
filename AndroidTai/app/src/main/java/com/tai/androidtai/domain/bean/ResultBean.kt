@@ -7,22 +7,22 @@ import com.google.gson.annotations.SerializedName
 class ResultBean private constructor(parcel: Parcel) : Parcelable {
 
     @SerializedName("id")
-    private var mId: Int? = 0
+    private var mId: Int = 0
 
     @SerializedName("name")
-    private var mName: String? = ""
+    private var mName: String? = null
 
     @SerializedName("status")
-    private var mStatus: String? = ""
+    private var mStatus: String? = null
 
     @SerializedName("species")
-    private var mSpecies: String? = ""
+    private var mSpecies: String? = null
 
     @SerializedName("gender")
-    private var mGender: String? = ""
+    private var mGender: String? = null
 
     @SerializedName("image")
-    private var mImageUrl: String? = ""
+    private var mImageUrl: String? = null
 
     @SerializedName("origin")
     private var mOrigin: OriginBean? = null
@@ -38,7 +38,7 @@ class ResultBean private constructor(parcel: Parcel) : Parcelable {
     }
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
-        dest.writeInt(mId!!)
+        dest.writeInt(mId)
         dest.writeString(mName)
         dest.writeString(mStatus)
         dest.writeString(mSpecies)
@@ -52,46 +52,31 @@ class ResultBean private constructor(parcel: Parcel) : Parcelable {
     }
 
     fun getId(): Int {
-        return mId!!
+        return mId
     }
 
-    fun getName(): String {
-        if (mName == null) {
-            mName = ""
-        }
-        return mName!!
+    fun getName(): String? {
+        return mName
     }
 
-    fun getStatus(): String {
-        if (mStatus == null) {
-            mStatus = ""
-        }
-        return mStatus!!
+    fun getStatus(): String? {
+        return mStatus
     }
 
-    fun getSpecies(): String {
-        if (mSpecies == null) {
-            mSpecies = ""
-        }
-        return mSpecies!!
+    fun getSpecies(): String? {
+        return mSpecies
     }
 
-    fun getGender(): String {
-        if (mGender == null) {
-            mGender = ""
-        }
-        return mGender!!
+    fun getGender(): String? {
+        return mGender
     }
 
-    fun getImageUrl(): String {
-        if (mImageUrl == null) {
-            mImageUrl = ""
-        }
-        return mImageUrl!!
+    fun getImageUrl(): String? {
+        return mImageUrl
     }
 
-    fun getOrigin(): OriginBean {
-        return mOrigin!!
+    fun getOrigin(): OriginBean? {
+        return mOrigin
     }
 
     companion object {

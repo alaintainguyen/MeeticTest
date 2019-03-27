@@ -41,7 +41,12 @@ class UserDetailsActivity : BaseActivity(), UserDetailsContract.View {
         user_status.text = resultBean.getStatus()
         gender.text = resultBean.getGender()
         user_species.text = resultBean.getSpecies()
-        user_origin.text = resultBean.getOrigin().getName()
+        user_origin.text = resultBean.getOrigin()?.getName()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mPresenter.unsubscribe(this)
     }
 
 }
